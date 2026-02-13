@@ -1,40 +1,128 @@
-/* Custom cursor glow */
-#cursor {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(255,105,180,0.6), rgba(143,211,255,0.4), transparent);
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease;
-  z-index: 9999;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* Card hover feedback */
-.card:hover {
-  box-shadow: 0 0 50px rgba(255, 182, 193, 1);
-  transform: scale(1.02);
-  transition: 0.3s ease;
+/* Animated romantic background */
+body {
+  height: 100vh;
+  overflow: hidden;
+
+  background: linear-gradient(
+    -45deg,
+    #ff4d6d,
+    #ff9acb,
+    #ffccd5,
+    #8fd3ff
+  );
+
+  background-size: 400% 400%;
+  animation: romanticFlow 12s ease infinite;
 }
 
-/* Button hover feedback */
-button:hover {
-  box-shadow: 0 0 15px rgba(255, 105, 180, 0.9);
+/* Moving gradient animation */
+@keyframes romanticFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Click ripple */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple 0.6s linear;
-  background: rgba(255, 182, 193, 0.7);
+/* Center container */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes ripple {
-  to {
-    transform: scale(4);
+/* Romantic card */
+.card {
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+
+  padding: 40px;
+  max-width: 650px;
+
+  border-radius: 20px;
+  text-align: center;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 25px rgba(255, 105, 180, 0.7),
+    0 0 50px rgba(143, 211, 255, 0.4);
+
+  animation: cardPop 1s ease;
+}
+
+/* Card pop animation */
+@keyframes cardPop {
+  from {
+    transform: scale(0.8);
     opacity: 0;
   }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Message text */
+#message {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  margin: 12px;
+  padding: 14px 28px;
+
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+  box-shadow: 0 0 15px #ff4d6d;
+}
+
+.no {
+  background: #e0e0e0;
+}
+
+/* Cursor glow */
+#cursor {
+  position: fixed;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(255,105,180,0.6),
+    rgba(143,211,255,0.4),
+    transparent
+  );
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
+
+  z-index: 9999;
 }
