@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Valentine</title>
-
-  <!-- THIS connects the CSS -->
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Valentine</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<div class="hearts"></div>
+
 <div class="container">
   <div class="card">
 
-    <p id="message">
-      Your message goes here
+    <p id="text">
+If I could give you one thing in life, I'd give you the ability to see yourself through my eyes. Only then you would realize how special you are to me. I choose you and I will choose you over and over again — without pause, without doubt, in a heartbeat, I'll keep choosing you.
     </p>
 
-    <button class="yes">YES</button>
-    <button class="no">NO</button>
+    <div id="buttons">
+      <button onclick="next()">YES ❤️</button>
+      <button onclick="no()">NO 💔</button>
+    </div>
 
   </div>
 </div>
 
-<!-- cursor glow -->
 <div id="cursor"></div>
 
 <script src="script.js"></script>
